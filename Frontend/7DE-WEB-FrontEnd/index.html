@@ -1,158 +1,941 @@
 <!DOCTYPE html>
-<!-- Trang chủ TutorAIs: nội dung chính + SEO meta, không dùng JavaScript -->
+<!-- TutorAIs SPA — Trang chủ, About, Contact gộp trong một file (smooth-scroll) -->
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Mô tả hiển thị trên kết quả tìm kiếm (SEO) -->
-    <meta
-      name="description"
-      content="TutorAIs hướng dẫn học sinh sử dụng AI trong học tập đúng cách"
-    />
-    <meta
-      name="keywords"
-      content=" AI học tập, intelligent tutor, học sinh sinh viên"
-    />
-    <meta name="author" content="TutorAIs" />
-    <title>TutorAIs | ứng dụng AI vào học tập và làm việc</title>
-    <!-- Font Inter từ Google Fonts (đã khai báo trong style.css) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Đầu trang: logo + menu. Checkbox + label = menu hamburger mobile (chỉ CSS) -->
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a href="index.html" class="site-logo" aria-label="Trang chủ TutorAIs">TutorAIs</a>
 
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true" />
-        <label for="menu-toggle" class="hamburger" aria-label="Mở menu điều hướng">
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-        </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TutorAIs hướng dẫn học sinh sử dụng AI trong học tập đúng cách" />
+  <meta name="keywords" content=" AI học tập, intelligent tutor, học sinh sinh viên" />
+  <meta name="author" content="TutorAIs" />
+  <title>TutorAIs | Làm chủ AI để học tập và làm việc hiệu quả</title>
 
-        <nav class="site-nav" aria-label="Điều hướng chính">
-          <a class="site-nav__link site-nav__link--active" href="index.html">Trang chủ</a>
-          <a class="site-nav__link" href="about.html">Về chúng tôi</a>
-          <a class="site-nav__link" href="contact.html">Liên hệ</a>
-          <a class="site-nav__link" href="AI Tools.html">Công cụ AI</a>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-          <a class="btn btn--sm" href="#featured-courses">Bắt Đầu Khám phá</a>
-        </nav>
+  <!-- CSS gốc -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- CSS bổ sung cho About & Contact (inline để giữ nguyên style.css) -->
+  <style>
+    /* ── Scroll offset: bù chiều cao header sticky ── */
+    :root {
+      --header-h: 68px;
+    }
+
+    section[id] {
+      scroll-margin-top: calc(var(--header-h) + 8px);
+    }
+
+    /* ══════════════════════════════════════
+         ABOUT SECTION
+      ══════════════════════════════════════ */
+    .about-layout {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: #eaf3ff;
+      color: var(--color-primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.8rem;
+    }
+
+    .about__title {
+      margin: 0 0 1rem;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.2;
+    }
+
+    .about__lead {
+      color: var(--color-muted);
+      font-size: 1.05rem;
+      margin: 0 0 1.5rem;
+    }
+
+    /* Mission pillars */
+    .mission-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .mission-item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      background: var(--color-bg-soft);
+      border: 1px solid var(--color-border);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .mission-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mission-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #007bff, #2990ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .mission-text strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .mission-text p {
+      margin: 0;
+      font-size: 0.87rem;
+      color: var(--color-muted);
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-number {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* About visual panel */
+    .about__visual {
+      position: relative;
+    }
+
+    .about__image-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about__image-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about__badge-float {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1.2rem;
+      box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      white-space: nowrap;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .about__badge-float .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+      }
+    }
+
+    /* ══════════════════════════════════════
+         AI TOOLS LOGOS (highlight section)
+      ══════════════════════════════════════ */
+    .ai-tools-strip {
+      padding: 2rem 0;
+      background: #f9fbff;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .ai-tools-strip .label {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .ai-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+    }
+
+    .ai-logo-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-text);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .ai-logo-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 123, 255, 0.1);
+    }
+
+    .ai-logo-chip span.emoji {
+      font-size: 1.15rem;
+    }
+
+    /* ══════════════════════════════════════
+         CONTACT / REGISTRATION FORM
+      ══════════════════════════════════════ */
+    .contact-layout {
+      display: grid;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Info column */
+    .contact__info-heading {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+    }
+
+    .contact__info-lead {
+      color: var(--color-muted);
+      font-size: 1rem;
+      margin: 0 0 1.8rem;
+    }
+
+    .contact-benefits {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-benefit {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-benefit::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: #16a34a;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .contact-socials {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .social-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text);
+      background: #fff;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .social-chip:hover {
+      background: #eef5ff;
+      border-color: #bfdcff;
+    }
+
+    /* Form card */
+    .reg-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 32px rgba(0, 123, 255, 0.08);
+      padding: 2rem 1.5rem;
+    }
+
+    .reg-card__heading {
+      margin: 0 0 0.35rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .reg-card__sub {
+      margin: 0 0 1.6rem;
+      font-size: 0.88rem;
+      color: var(--color-muted);
+    }
+
+    /* Tab switch: Đăng ký / Tư vấn */
+    .form-tab-group {
+      display: flex;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      background: var(--color-bg-soft);
+    }
+
+    .form-tab-input {
+      display: none;
+    }
+
+    .form-tab-label {
+      flex: 1;
+      padding: 0.58rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      cursor: pointer;
+      border-radius: 9px;
+      margin: 3px;
+      transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    #tab-register:checked~.form-tab-group label[for="tab-register"],
+    #tab-consult:checked~.form-tab-group label[for="tab-consult"] {
+      background: #fff;
+      color: var(--color-primary);
+      box-shadow: 0 2px 8px rgba(0, 123, 255, 0.12);
+    }
+
+    /* Form panels */
+    .form-panel {
+      display: none;
+    }
+
+    #tab-register:checked~.form-body #panel-register {
+      display: block;
+    }
+
+    #tab-consult:checked~.form-body #panel-consult {
+      display: block;
+    }
+
+    /* Form fields */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .field label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: var(--color-bg-soft);
+      outline: none;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.12);
+      background: #fff;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .field--row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    /* Checkbox row */
+    .field--check {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .field--check input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--color-primary);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .field--check label {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-muted);
+      cursor: pointer;
+    }
+
+    .field--check label a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Submit button */
+    .btn--full {
+      width: 100%;
+      padding: 0.82rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 11px;
+      justify-content: center;
+    }
+
+    /* Success notice */
+    .form-note {
+      margin-top: 0.85rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    /* ══════════════════════════════════════
+         RESPONSIVE
+      ══════════════════════════════════════ */
+    @media (min-width: 740px) {
+      .about-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reg-card {
+        padding: 2.2rem 2rem;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .about-layout {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 4rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ══════════════════════════════════════
+         HEADER & NAV
+    ══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#top" class="site-logo" aria-label="Trang chủ TutorAIs">TutorAIs</a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true" />
+      <label for="menu-toggle" class="hamburger" aria-label="Mở menu điều hướng">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </label>
+
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a class="site-nav__link site-nav__link--active" href="#top">Trang chủ</a>
+        <a class="site-nav__link" href="#about">Về chúng tôi</a>
+        <a class="site-nav__link" href="#contact">Liên hệ</a>
+        <a class="site-nav__link" href="AI Tools.html">Công cụ AI</a>
+        <a class="btn btn--sm" href="#contact">Đăng Ký Ngay</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ══════════════════════════════════════
+           HERO
+      ══════════════════════════════════════ -->
+    <section class="hero section">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="badge">Nền tảng hướng dẫn sử dụng AI trong học tập và làm việc</p>
+          <h1 class="hero__title">
+            Sử dụng AI tinh gọn, nhanh chóng, hiệu quả để học tập và làm việc
+          </h1>
+          <p class="hero__text">
+            TutorAIs hướng dẫn sinh viên khai thác sức mạnh của AI một cách đúng đắn, nhanh chóng và thực tiễn, giúp tối
+            ưu hóa hiệu suất học tập ngay từ hôm nay.
+          </p>
+          <div class="hero__actions">
+            <a class="btn" href="#featured-courses">Bắt đầu tìm hiểu ngay</a>
+            <a class="btn btn--ghost" href="#about">Về chúng tôi</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="image/image1.jpg" alt="Sinh viên học cách sử dụng AI hiệu quả cùng TutorAIs" loading="lazy" />
+        </div>
       </div>
-    </header>
+    </section>
 
-    <!-- Nội dung chính: hero, danh mục, khóa học, CTA -->
-    <main>
-      <!-- Hero: tiêu đề lớn + ảnh minh họa -->
-      <section class="hero section">
-        <div class="container hero__grid">
-          <div class="hero__content">
-            <p class="badge">Nền tảng hướng dẫn sử dụng AI trong học tập và làm việc</p>
-            <h1 class="hero__title">
-              Sử dụng AI tinh gọn, nhanh chóng, hiệu quả để học tập và làm việc
-            </h1>
-            <p class="hero__text">
-              TutorAIs cung cấp hướng dẫn dễ hiểu giúp học sinh, sinh viên nhanh chóng hiệu quả ứng dụng AI đúng cách để học tập hiệu quả.
-            </p>
-            <div class="hero__actions">
-              <a class="btn" href="#categories">Bắt đầu tìm hiểu ngay</a>
+    <!-- ── Dải logo AI ── -->
+    <div class="ai-tools-strip">
+      <div class="container">
+        <p class="label">Nền tảng AI bạn sẽ làm chủ</p>
+        <div class="ai-logos">
+          <span class="ai-logo-chip"><span class="emoji">🤖</span> ChatGPT</span>
+          <span class="ai-logo-chip"><span class="emoji">✦</span> Claude</span>
+          <span class="ai-logo-chip"><span class="emoji">💎</span> Gemini</span>
+          <span class="ai-logo-chip"><span class="emoji">🔍</span> Perplexity</span>
+          <span class="ai-logo-chip"><span class="emoji">🎨</span> Midjourney</span>
+          <span class="ai-logo-chip"><span class="emoji">⚡</span> Copilot</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+           CATEGORIES
+      ══════════════════════════════════════ -->
+    <section class="section section--muted" id="categories">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__kicker">Danh mục</p>
+          <h2>Thông tin chuẩn xác và cập nhật liên tục</h2>
+        </header>
+
+        <div class="category-grid">
+          <article class="card card--category">
+            <img src="image/image2.jpg" alt="Ứng dụng AI để làm slide, tạo video và học tập thông minh"
+              class="card__image" loading="lazy" />
+            <div class="card__body">
+              <h3 class="card__title">Ứng Dụng AI</h3>
+              <p class="card__text">
+                Hướng dẫn sử dụng các AI phổ biến để làm slide, tạo video học tập, tóm tắt bài
+                nhanh và nâng cao kỹ năng tự học.
+              </p>
+              <a href="#" class="card__link">Khám phá công cụ AI</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+           FEATURED COURSES
+      ══════════════════════════════════════ -->
+    <section class="section" id="featured-courses">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__kicker">Hướng dẫn ứng dụng AI vào học tập &amp; làm việc</p>
+          <h2>Nội dung ngắn gọn và dễ hiểu</h2>
+        </header>
+
+        <div class="courses-grid">
+          <article class="card card--course">
+            <img src="image/image3.jpg" alt="Ứng dụng AI để học tập và thuyết trình" class="card__image"
+              loading="lazy" />
+            <div class="card__body">
+              <h3 class="card__title">Dùng AI Làm Slide Và Video Học Tập</h3>
+              <p class="card__meta">50 phút • Cơ bản</p>
+              <p class="card__text">
+                Quy trình tạo nội dung, viết prompt hiệu quả và kiểm tra độ chính xác khi dùng AI
+                trong học tập.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+           CTA BANNER
+      ══════════════════════════════════════ -->
+    <section class="section section--cta">
+      <div class="container cta">
+        <div class="cta__content">
+          <h2 class="cta__title">Sẵn sàng làm chủ AI từ hôm nay?</h2>
+          <p class="cta__text">
+            Tham gia TutorAIs để xây dựng kỹ năng khai thác AI đúng cách trong học tập và làm việc.
+          </p>
+        </div>
+        <a class="btn btn--light" href="#contact">Đăng ký tư vấn miễn phí</a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+           ABOUT SECTION
+      ══════════════════════════════════════ -->
+    <section id="about" class="section">
+      <div class="container about-layout">
+
+        <!-- Nội dung -->
+        <div class="about__content">
+          <p class="about__eyebrow">🎯 Về chúng tôi</p>
+          <h2 class="about__title">
+            Sứ mệnh giúp sinh viên làm chủ AI để học tập vượt trội
+          </h2>
+          <p class="about__lead">
+            TutorAIs ra đời với một mục tiêu duy nhất: trang bị cho thế hệ trẻ Việt Nam
+            những kỹ năng sử dụng AI chuyên sâu và đúng đắn — từ ChatGPT, Claude đến Gemini —
+            biến công nghệ thành lợi thế cạnh tranh thực sự trong học tập và sự nghiệp.
+          </p>
+
+          <ul class="mission-list">
+            <li class="mission-item">
+              <span class="mission-icon">🧠</span>
+              <div class="mission-text">
+                <strong>Làm chủ ChatGPT</strong>
+                <p>Từ câu lệnh cơ bản đến Prompt Engineering nâng cao để nghiên cứu, viết luận, giải bài tập.</p>
+              </div>
+            </li>
+            <li class="mission-item">
+              <span class="mission-icon">✦</span>
+              <div class="mission-text">
+                <strong>Khai thác Claude &amp; Gemini</strong>
+                <p>Phân tích tài liệu dài, tổng hợp kiến thức và tư duy phản biện hỗ trợ bởi AI.</p>
+              </div>
+            </li>
+            <li class="mission-item">
+              <span class="mission-icon">📈</span>
+              <div class="mission-text">
+                <strong>Tối ưu hóa hiệu suất học tập</strong>
+                <p>Xây dựng lộ trình học cá nhân hóa, tiết kiệm thời gian ôn tập và nâng cao điểm số.</p>
+              </div>
+            </li>
+            <li class="mission-item">
+              <span class="mission-icon">🛡️</span>
+              <div class="mission-text">
+                <strong>Sử dụng AI có trách nhiệm</strong>
+                <p>Nhận biết giới hạn, kiểm chứng thông tin và tránh những cạm bẫy khi dùng AI.</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Stats -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-number">3+</div>
+              <div class="stat-label">Nền tảng AI</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">10K+</div>
+              <div class="stat-label">Sinh viên</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Miễn phí</div>
             </div>
           </div>
-          <div class="hero__media">
-            <img
-              src="image/image1.jpg"
-              alt="Học sinh học cách  sử dụng AI học tập hiệu quả"
-              loading="lazy"
-            />
+        </div>
+
+        <!-- Visual -->
+        <div class="about__visual">
+          <div class="about__image-wrap">
+            <img src="image/image1.jpg" alt="Sinh viên TutorAIs đang học cách sử dụng AI trực tuyến" loading="lazy" />
+          </div>
+          <div class="about__badge-float">
+            <span class="dot"></span>
+            Đang học trực tuyến: <strong>1,247 sinh viên</strong>
           </div>
         </div>
-      </section>
 
-      <!-- Danh mục: nền xám nhạt (section--muted), card giới thiệu chủ đề -->
-      <section class="section section--muted" id="categories">
-        <div class="container">
-          <header class="section__head">
-            <p class="section__kicker">Danh mục</p>
-            <h2>Thông tin chuẩn xác và cập nhật liên tục</h2>
-          </header>
-
-          <div class="category-grid">
-            <article class="card card--category">
-              <img
-              src="image/image2.jpg"
-                alt="Ứng dụng AI để làm slide, tạo video và học tập thông minh"
-                class="card__image"
-                loading="lazy"
-              />
-              <div class="card__body">
-                <h3 class="card__title">Ứng Dụng AI</h3>
-                <p class="card__text">
-                  Hướng dẫn sử dụng các AI phổ biến để làm slide, tạo video học tập, tóm tắt bài
-                  nhanh và nâng cao kỹ năng tự học.
-                </p>
-                <a href="#" class="card__link">Khám phá công cụ AI</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Khóa học / nội dung nổi bật: lưới card (courses-grid trong CSS) -->
-      <section class="section" id="featured-courses">
-        <div class="container">
-          <header class="section__head">
-            <p class="section__kicker">Hướng dẫn ứng dụng AI vào học tập làm việc</p>
-            <h2>Nội dung ngắn gọn và dễ hiểu</h2>
-          </header>
-
-          <div class="courses-grid">
-            <article class="card card--course">
-              <img
-                src="image/image3.jpg"
-                alt="Ứng dụng AI để học tập và thuyết trình"
-                class="card__image"
-                loading="lazy"
-              />
-              <div class="card__body">
-                <h3 class="card__title">Dùng AI Làm Slide Và Video Học Tập</h3>
-                <p class="card__meta">50 phút • Cơ bản</p>
-                <p class="card__text">
-                  Quy trình tạo nội dung, viết prompt hiệu quả và kiểm tra độ chính xác khi dùng AI
-                  trong học tập.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA: kêu gọi hành động (nền gradient trong CSS) -->
-      <section class="section section--cta">
-        <div class="container cta">
-          <div class="cta__content">
-            <h2 class="cta__title">Sẵn sàng tìm hiểu AI ứng dụng từ hôm nay? Mong muốn hỗ trợ tư vấn?</h2>
-            <p class="cta__text">
-              Tham gia TutorAIs để xây dựng kỹ năng khai thác AI đúng cách trong học tập và làm việc.
-            </p>
-          </div>
-          <a class="btn btn--light" href="contact.html">Đăng ký tư vấn miễn phí</a>
-        </div>
-      </section>
-    </main>
-
-    <!-- Chân trang: bản quyền và mô tả ngắn -->
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <p>&copy; 2026 TutorAIs. All rights reserved.</p>
-        <p>Giáo dục ứng dụng AI học tập và làm việc cho học sinh, sinh viên Việt Nam.</p>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- ══════════════════════════════════════
+           CONTACT / REGISTRATION SECTION
+      ══════════════════════════════════════ -->
+    <section id="contact" class="section section--muted">
+      <div class="container contact-layout">
+
+        <!-- Thông tin liên hệ -->
+        <div class="contact__info">
+          <p class="section__kicker">📩 Đăng ký &amp; Liên hệ</p>
+          <h2 class="contact__info-heading">
+            Bắt đầu hành trình làm chủ AI ngay hôm nay
+          </h2>
+          <p class="contact__info-lead">
+            Đăng ký khóa học hoặc đặt lịch tư vấn 1:1 miễn phí. Chúng tôi sẽ giúp bạn xây
+            dựng lộ trình học AI phù hợp nhất với mục tiêu cá nhân.
+          </p>
+
+          <ul class="contact-benefits">
+            <li class="contact-benefit">Tư vấn lộ trình học AI cá nhân hóa miễn phí</li>
+            <li class="contact-benefit">Truy cập kho tài liệu &amp; Video hướng dẫn độc quyền</li>
+            <li class="contact-benefit">Cộng đồng sinh viên học AI năng động 10.000+ thành viên</li>
+            <li class="contact-benefit">Cập nhật liên tục các tính năng AI mới nhất</li>
+            <li class="contact-benefit">Chứng nhận hoàn thành khóa học có giá trị</li>
+          </ul>
+
+          <div class="contact-socials">
+            <a href="#" class="social-chip" aria-label="Facebook TutorAIs">📘 Facebook</a>
+            <a href="#" class="social-chip" aria-label="YouTube TutorAIs">▶️ YouTube</a>
+            <a href="#" class="social-chip" aria-label="Email TutorAIs">✉️ Email</a>
+          </div>
+        </div>
+
+        <!-- Form đăng ký -->
+        <div class="reg-card">
+          <h3 class="reg-card__heading">Đăng ký ngay</h3>
+          <p class="reg-card__sub">Miễn phí • Không cần thẻ tín dụng • Phản hồi trong 24h</p>
+
+          <!-- Tab toggle (pure CSS) -->
+          <input type="radio" name="form-tab" id="tab-register" class="form-tab-input" checked />
+          <input type="radio" name="form-tab" id="tab-consult" class="form-tab-input" />
+
+          <div class="form-tab-group" role="tablist">
+            <label for="tab-register" class="form-tab-label" role="tab">🎓 Đăng ký học</label>
+            <label for="tab-consult" class="form-tab-label" role="tab">💬 Tư vấn</label>
+          </div>
+
+          <div class="form-body">
+
+            <!-- Panel: Đăng ký khóa học -->
+            <div id="panel-register" class="form-panel">
+              <form action="#contact" method="post" novalidate>
+                <div class="field-group">
+                  <div class="field field--row">
+                    <div class="field">
+                      <label for="reg-fullname">Họ và tên <span style="color:#ef4444">*</span></label>
+                      <input type="text" id="reg-fullname" name="fullname" placeholder="Nguyễn Văn A" required
+                        autocomplete="name" />
+                    </div>
+                    <div class="field">
+                      <label for="reg-phone">Số điện thoại <span style="color:#ef4444">*</span></label>
+                      <input type="tel" id="reg-phone" name="phone" placeholder="0901 234 567" required
+                        autocomplete="tel" />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="reg-email">Email <span style="color:#ef4444">*</span></label>
+                    <input type="email" id="reg-email" name="email" placeholder="email@example.com" required
+                      autocomplete="email" />
+                  </div>
+
+                  <div class="field">
+                    <label for="reg-school">Trường / Năm học</label>
+                    <input type="text" id="reg-school" name="school" placeholder="ĐHKHTN – Năm 2"
+                      autocomplete="organization" />
+                  </div>
+
+                  <div class="field">
+                    <label for="reg-course">Khóa học quan tâm <span style="color:#ef4444">*</span></label>
+                    <select id="reg-course" name="course" required>
+                      <option value="" disabled selected>-- Chọn khóa học --</option>
+                      <option value="chatgpt-basic">ChatGPT từ Cơ bản đến Nâng cao</option>
+                      <option value="claude-research">Claude cho Nghiên cứu &amp; Luận văn</option>
+                      <option value="gemini-google">Gemini &amp; Hệ sinh thái Google</option>
+                      <option value="prompt-engineering">Prompt Engineering Chuyên nghiệp</option>
+                      <option value="ai-full">Combo AI Toàn diện (3 nền tảng)</option>
+                    </select>
+                  </div>
+
+                  <div class="field field--check">
+                    <input type="checkbox" id="reg-agree" name="agree" required />
+                    <label for="reg-agree">
+                      Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và
+                      <a href="#">Chính sách bảo mật</a>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn--full" id="btn-register">
+                  🚀 &nbsp;Đăng ký miễn phí ngay
+                </button>
+              </form>
+            </div>
+
+            <!-- Panel: Tư vấn -->
+            <div id="panel-consult" class="form-panel">
+              <form action="#contact" method="post" novalidate>
+                <div class="field-group">
+                  <div class="field field--row">
+                    <div class="field">
+                      <label for="con-name">Họ và tên <span style="color:#ef4444">*</span></label>
+                      <input type="text" id="con-name" name="name" placeholder="Nguyễn Thị B" required
+                        autocomplete="name" />
+                    </div>
+                    <div class="field">
+                      <label for="con-phone">Số điện thoại</label>
+                      <input type="tel" id="con-phone" name="phone" placeholder="0901 234 567" autocomplete="tel" />
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="con-email">Email <span style="color:#ef4444">*</span></label>
+                    <input type="email" id="con-email" name="email" placeholder="email@example.com" required
+                      autocomplete="email" />
+                  </div>
+
+                  <div class="field">
+                    <label for="con-topic">Chủ đề tư vấn <span style="color:#ef4444">*</span></label>
+                    <select id="con-topic" name="topic" required>
+                      <option value="" disabled selected>-- Chọn chủ đề --</option>
+                      <option value="choose-ai">Chọn công cụ AI phù hợp</option>
+                      <option value="roadmap">Xây dựng lộ trình học AI</option>
+                      <option value="thesis">Dùng AI cho luận văn / nghiên cứu</option>
+                      <option value="career">AI trong định hướng nghề nghiệp</option>
+                      <option value="other">Câu hỏi khác</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="con-message">Nội dung câu hỏi</label>
+                    <textarea id="con-message" name="message"
+                      placeholder="Mô tả ngắn về vấn đề bạn cần tư vấn..."></textarea>
+                  </div>
+
+                  <div class="field field--check">
+                    <input type="checkbox" id="con-agree" name="agree" required />
+                    <label for="con-agree">
+                      Tôi đồng ý nhận phản hồi qua email &amp; đồng ý với
+                      <a href="#">Điều khoản</a>
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn--full" id="btn-consult">
+                  💬 &nbsp;Gửi yêu cầu tư vấn
+                </button>
+              </form>
+            </div>
+
+          </div><!-- /.form-body -->
+
+          <p class="form-note">
+            🔒 Thông tin của bạn được bảo mật tuyệt đối &amp; không chia sẻ cho bên thứ ba.
+          </p>
+        </div><!-- /.reg-card -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 TutorAIs. All rights reserved.</p>
+      <p>Giáo dục ứng dụng AI học tập và làm việc cho học sinh, sinh viên Việt Nam.</p>
+    </div>
+  </footer>
+
+</body>
+
 </html>
