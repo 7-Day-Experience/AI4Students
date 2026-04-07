@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="{{ '/' | relative_url }}#top" class="site-logo" aria-label="Trang chủ TutorAIs">TutorAIs</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true" />
+    <label for="menu-toggle" class="hamburger" aria-label="Mở menu điều hướng">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Điều hướng chính">
+      <a class="site-nav__link site-nav__link--active" href="{{ '/' | relative_url }}#top">Trang chủ</a>
+      <a class="site-nav__link" href="{{ '/' | relative_url }}#about">Về chúng tôi</a>
+      <a class="site-nav__link" href="{{ '/' | relative_url }}#contact">Liên hệ</a>
+      <a class="site-nav__link" href="{{ '/ai-tools/' | relative_url }}">Công cụ AI</a>
+      <a class="btn btn--sm" href="{{ '/' | relative_url }}#contact">Đăng Ký Ngay</a>
+    </nav>
+  </div>
+</header>
