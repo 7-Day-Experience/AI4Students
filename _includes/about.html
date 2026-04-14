@@ -1,69 +1,11 @@
-<section id="about" class="section">
+<section class="section" id="about">
   <div class="container about-layout">
     <div class="about__content">
-      <p class="about__eyebrow">🎯 Về chúng tôi</p>
-      <h2 class="about__title">
-        Sứ mệnh giúp sinh viên làm chủ AI để học tập vượt trội
-      </h2>
+      <p class="about__eyebrow">Về chúng tôi</p>
+      <h2 class="about__title">{{ site.data.site_info.about.title }}</h2>
       <p class="about__lead">
-        TutorAIs ra đời với một mục tiêu duy nhất: trang bị cho thế hệ trẻ Việt Nam những kỹ năng sử dụng AI chuyên sâu và đúng đắn — từ ChatGPT, Claude đến Gemini — biến công nghệ thành lợi thế cạnh tranh thực sự trong học tập và sự nghiệp.
+        {{ site.data.site_info.about.description }}
       </p>
-
-      <ul class="mission-list">
-        <li class="mission-item">
-          <span class="mission-icon">🧠</span>
-          <div class="mission-text">
-            <strong>Làm chủ ChatGPT</strong>
-            <p>Từ câu lệnh cơ bản đến Prompt Engineering nâng cao để nghiên cứu, viết luận, giải bài tập.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">✦</span>
-          <div class="mission-text">
-            <strong>Khai thác Claude &amp; Gemini</strong>
-            <p>Phân tích tài liệu dài, tổng hợp kiến thức và tư duy phản biện hỗ trợ bởi AI.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">📈</span>
-          <div class="mission-text">
-            <strong>Tối ưu hóa hiệu suất học tập</strong>
-            <p>Xây dựng lộ trình học cá nhân hóa, tiết kiệm thời gian ôn tập và nâng cao điểm số.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">🛡️</span>
-          <div class="mission-text">
-            <strong>Sử dụng AI có trách nhiệm</strong>
-            <p>Nhận biết giới hạn, kiểm chứng thông tin và tránh những cạm bẫy khi dùng AI.</p>
-          </div>
-        </li>
-      </ul>
-
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Nền tảng AI</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">10K+</div>
-          <div class="stat-label">Sinh viên</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Miễn phí</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about__visual">
-      <div class="about__image-wrap">
-        <img src="{{ '/image/image1.jpg' | relative_url }}" alt="Sinh viên TutorAIs đang học cách sử dụng AI trực tuyến" loading="lazy" />
-      </div>
-      <div class="about__badge-float">
-        <span class="dot"></span>
-        Đang học trực tuyến: <strong>1,247 sinh viên</strong>
-      </div>
     </div>
   </div>
 </section>

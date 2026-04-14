@@ -1,0 +1,46 @@
+:root {
+  --color-primary: #007bff;
+  --color-primary-dark: #005ec4;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f8fc;
+  --color-border: #e5e7eb;
+  --shadow-sm: 0 8px 24px rgba(2, 16, 44, 0.08);
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --container-width: 1120px;
+  --header-h: 68px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Roboto", system-ui, -apple-system, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 8px);
+}

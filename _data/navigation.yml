@@ -1,0 +1,11 @@
+main:
+  - title: "Trang chủ"
+    url: "/"
+  - title: "Công cụ AI"
+    url: "/ai-tools/"
+  - title: "Học theo môn"
+    url: "/categories/"
+  - title: "Hướng dẫn sử dụng"
+    url: "/guide/"
+  - title: "Blog & Tin tức"
+    url: "/blog/"

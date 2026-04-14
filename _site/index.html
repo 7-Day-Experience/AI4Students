@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TutorAIs hướng dẫn học sinh sử dụng AI trong học tập đúng cách" />
-  <meta name="keywords" content="AI học tập, intelligent tutor, học sinh sinh viên" />
-  <meta name="author" content="TutorAIs" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TutorAIs hướng dẫn học sinh sử dụng AI trong học tập đúng cách">
+  <meta name="keywords" content="AI học tập, intelligent tutor, học sinh sinh viên">
+  <meta name="author" content="TutorAIs">
   <title>TutorAIs | Làm chủ AI để học tập và làm việc hiệu quả</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/#top" class="site-logo" aria-label="Trang chủ TutorAIs">TutorAIs</a>
+    <a href="/" class="site-logo">
+      FPTU TutorAIs
+    </a>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true" />
-    <label for="menu-toggle" class="hamburger" aria-label="Mở menu điều hướng">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
     </label>
 
-    <nav class="site-nav" aria-label="Điều hướng chính">
-      <a class="site-nav__link site-nav__link--active" href="/#top">Trang chủ</a>
-      <a class="site-nav__link" href="/#about">Về chúng tôi</a>
-      <a class="site-nav__link" href="/#contact">Liên hệ</a>
-      <a class="site-nav__link" href="/ai-tools/">Công cụ AI</a>
-      <a class="btn btn--sm" href="/#contact">Đăng Ký Ngay</a>
+    <nav class="site-nav">
+      
+        <a href="/" class="site-nav__link">
+          Trang chủ
+        </a>
+      
+        <a href="/ai-tools/" class="site-nav__link">
+          Công cụ AI
+        </a>
+      
+        <a href="/categories/" class="site-nav__link">
+          Học theo môn
+        </a>
+      
+        <a href="/guide/" class="site-nav__link">
+          Hướng dẫn sử dụng
+        </a>
+      
+        <a href="/blog/" class="site-nav__link">
+          Blog & Tin tức
+        </a>
+      
     </nav>
   </div>
 </header>
@@ -45,7 +63,7 @@
         Sử dụng AI tinh gọn, nhanh chóng, hiệu quả để học tập và làm việc
       </h1>
       <p class="hero__text">
-        TutorAIs hướng dẫn sinh viên khai thác sức mạnh của AI một cách đúng đắn, nhanh chóng và thực tiễn, giúp tối ưu hóa hiệu suất học tập ngay từ hôm nay.
+        FPTU TutorAIs Khám phá các công cụ AI phổ biến, học cách ứng dụng vào từng môn học và nâng cao hiệu quả học tập mỗi ngày.
       </p>
       <div class="hero__actions">
         <a class="btn" href="#featured-courses">Bắt đầu tìm hiểu ngay</a>
@@ -57,295 +75,484 @@
     </div>
   </div>
 </section>
-<div class="ai-tools-strip">
+<section class="ai-tools-section">
   <div class="container">
-    <p class="label">Nền tảng AI bạn sẽ làm chủ</p>
-    <div class="ai-logos">
-      <span class="ai-logo-chip"><span class="emoji">🤖</span> ChatGPT</span>
-      <span class="ai-logo-chip"><span class="emoji">✦</span> Claude</span>
-      <span class="ai-logo-chip"><span class="emoji">💎</span> Gemini</span>
-      <span class="ai-logo-chip"><span class="emoji">🔍</span> Perplexity</span>
-      <span class="ai-logo-chip"><span class="emoji">🎨</span> Midjourney</span>
-      <span class="ai-logo-chip"><span class="emoji">⚡</span> Copilot</span>
+    <div class="ai-tools-heading">
+      <h2>Công cụ AI <span>nổi bật</span></h2>
+      <p>Những công cụ AI hàng đầu được chọn lọc, phù hợp nhất cho học sinh THPT.</p>
     </div>
-  </div>
-</div>
-<section class="section section--muted" id="categories">
-  <div class="container">
-    <header class="section__head">
-      <p class="section__kicker">Danh mục</p>
-      <h2>Thông tin chuẩn xác và cập nhật liên tục</h2>
-    </header>
 
-    <div class="category-grid">
-      <article class="card card--category">
-        <img src="/image/image2.jpg" alt="Ứng dụng AI để làm slide, tạo video và học tập thông minh" class="card__image" loading="lazy" />
-        <div class="card__body">
-          <h3 class="card__title">Ứng Dụng AI</h3>
-          <p class="card__text">
-            Hướng dẫn sử dụng các AI phổ biến để làm slide, tạo video học tập, tóm tắt bài nhanh và nâng cao kỹ năng tự học.
-          </p>
-          <a href="/ai-tools/" class="card__link">Khám phá công cụ AI</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="section" id="featured-courses">
-  <div class="container">
-    <header class="section__head">
-      <p class="section__kicker">Hướng dẫn ứng dụng AI vào học tập &amp; làm việc</p>
-      <h2>Nội dung ngắn gọn và dễ hiểu</h2>
-    </header>
+    
 
-    <div class="courses-grid">
-      <article class="card card--course">
-        <img src="/image/image3.jpg" alt="Ứng dụng AI để học tập và thuyết trình" class="card__image" loading="lazy" />
-        <div class="card__body">
-          <h3 class="card__title">Dùng AI Làm Slide Và Video Học Tập</h3>
-          <p class="card__meta">50 phút • Cơ bản</p>
-          <p class="card__text">
-            Quy trình tạo nội dung, viết prompt hiệu quả và kiểm tra độ chính xác khi dùng AI trong học tập.
+    <div class="ai-tools-grid">
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Gauth AI (Gauthmath)</h3>
+
+          <p class="ai-tool-desc">
+            Trợ lý giải Khoa học tự nhiên bằng camera
           </p>
-        </div>
-      </article>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/01-gauth-ai.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Quizlet</h3>
+
+          <p class="ai-tool-desc">
+            Công cụ học thuộc lòng siêu tốc với AI Magic Notes và Q-Chat
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/02-quizlet.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Google Gemini</h3>
+
+          <p class="ai-tool-desc">
+            Trợ lý tìm ý tưởng và lập dàn ý môn Ngữ Văn
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/03-google-gemini.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">ChatGPT Voice</h3>
+
+          <p class="ai-tool-desc">
+            Gia sư luyện Speaking IELTS miễn phí
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/04-chatgpt-voice.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Question.AI</h3>
+
+          <p class="ai-tool-desc">
+            Ứng dụng hỏi đáp trắc nghiệm siêu tốc
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/05-question-ai.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Gamma App</h3>
+
+          <p class="ai-tool-desc">
+            Trợ lý thiết kế slide thuyết trình
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/06-gamma-app.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">ChatPDF</h3>
+
+          <p class="ai-tool-desc">
+            Trợ lý đọc và tóm tắt tài liệu PDF
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/07-chatpdf.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">QuillBot</h3>
+
+          <p class="ai-tool-desc">
+            Trợ lý viết lại câu và kiểm tra ngữ pháp Tiếng Anh
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/08-quillbot.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">NotebookLM</h3>
+
+          <p class="ai-tool-desc">
+            Hệ thống liên kết tài liệu và tạo podcast của Google
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/09-notebooklm.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            
+              <span>✦</span>
+            
+          </div>
+
+          <h3 class="ai-tool-title">Chatmind</h3>
+
+          <p class="ai-tool-desc">
+            Tự động vẽ sơ đồ tư duy
+          </p>
+
+          
+            <div class="ai-tool-tags">
+              
+            </div>
+          
+
+          <a href="/tools/10-chatmind.html" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      
     </div>
   </div>
 </section>
-<section class="section section--cta">
-  <div class="container cta">
-    <div class="cta__content">
-      <h2 class="cta__title">Sẵn sàng làm chủ AI từ hôm nay?</h2>
-      <p class="cta__text">
-        Tham gia TutorAIs để xây dựng kỹ năng khai thác AI đúng cách trong học tập và làm việc.
-      </p>
-    </div>
-    <a class="btn btn--light" href="#contact">Đăng ký tư vấn miễn phí</a>
-  </div>
-</section>
-<section id="about" class="section">
+
+<style>
+  .ai-tools-section {
+    padding: 72px 0;
+    background: #f3f4f6;
+  }
+
+  .ai-tools-section .container {
+    width: min(1280px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .ai-tools-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .ai-tools-heading h2 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .ai-tools-heading h2 span {
+    color: #6366f1;
+  }
+
+  .ai-tools-heading p {
+    margin: 18px auto 0;
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #6b7280;
+  }
+
+  .ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .ai-tool-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    transition: all 0.25s ease;
+  }
+
+  .ai-tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(99, 102, 241, 0.12);
+  }
+
+  .ai-tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .ai-tool-title {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .ai-tool-desc {
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6b7280;
+    min-height: 82px;
+  }
+
+  .ai-tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .ai-tool-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .ai-tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .ai-tool-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1100px) {
+    .ai-tools-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 820px) {
+    .ai-tools-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .ai-tools-section {
+      padding: 48px 0;
+    }
+
+    .ai-tools-section .container {
+      width: min(100%, calc(100% - 28px));
+    }
+
+    .ai-tools-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<section class="section" id="about">
   <div class="container about-layout">
     <div class="about__content">
-      <p class="about__eyebrow">🎯 Về chúng tôi</p>
-      <h2 class="about__title">
-        Sứ mệnh giúp sinh viên làm chủ AI để học tập vượt trội
-      </h2>
+      <p class="about__eyebrow">Về chúng tôi</p>
+      <h2 class="about__title">Về chúng tôi</h2>
       <p class="about__lead">
-        TutorAIs ra đời với một mục tiêu duy nhất: trang bị cho thế hệ trẻ Việt Nam những kỹ năng sử dụng AI chuyên sâu và đúng đắn — từ ChatGPT, Claude đến Gemini — biến công nghệ thành lợi thế cạnh tranh thực sự trong học tập và sự nghiệp.
-      </p>
-
-      <ul class="mission-list">
-        <li class="mission-item">
-          <span class="mission-icon">🧠</span>
-          <div class="mission-text">
-            <strong>Làm chủ ChatGPT</strong>
-            <p>Từ câu lệnh cơ bản đến Prompt Engineering nâng cao để nghiên cứu, viết luận, giải bài tập.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">✦</span>
-          <div class="mission-text">
-            <strong>Khai thác Claude &amp; Gemini</strong>
-            <p>Phân tích tài liệu dài, tổng hợp kiến thức và tư duy phản biện hỗ trợ bởi AI.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">📈</span>
-          <div class="mission-text">
-            <strong>Tối ưu hóa hiệu suất học tập</strong>
-            <p>Xây dựng lộ trình học cá nhân hóa, tiết kiệm thời gian ôn tập và nâng cao điểm số.</p>
-          </div>
-        </li>
-        <li class="mission-item">
-          <span class="mission-icon">🛡️</span>
-          <div class="mission-text">
-            <strong>Sử dụng AI có trách nhiệm</strong>
-            <p>Nhận biết giới hạn, kiểm chứng thông tin và tránh những cạm bẫy khi dùng AI.</p>
-          </div>
-        </li>
-      </ul>
-
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Nền tảng AI</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">10K+</div>
-          <div class="stat-label">Sinh viên</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Miễn phí</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about__visual">
-      <div class="about__image-wrap">
-        <img src="/image/image1.jpg" alt="Sinh viên TutorAIs đang học cách sử dụng AI trực tuyến" loading="lazy" />
-      </div>
-      <div class="about__badge-float">
-        <span class="dot"></span>
-        Đang học trực tuyến: <strong>1,247 sinh viên</strong>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="contact" class="section section--muted">
-  <div class="container contact-layout">
-    <div class="contact__info">
-      <p class="section__kicker">📩 Đăng ký &amp; Liên hệ</p>
-      <h2 class="contact__info-heading">
-        Bắt đầu hành trình làm chủ AI ngay hôm nay
-      </h2>
-      <p class="contact__info-lead">
-        Đăng ký khóa học hoặc đặt lịch tư vấn 1:1 miễn phí. Chúng tôi sẽ giúp bạn xây dựng lộ trình học AI phù hợp nhất với mục tiêu cá nhân.
-      </p>
-
-      <ul class="contact-benefits">
-        <li class="contact-benefit">Tư vấn lộ trình học AI cá nhân hóa miễn phí</li>
-        <li class="contact-benefit">Truy cập kho tài liệu &amp; Video hướng dẫn độc quyền</li>
-        <li class="contact-benefit">Cộng đồng sinh viên học AI năng động 10.000+ thành viên</li>
-        <li class="contact-benefit">Cập nhật liên tục các tính năng AI mới nhất</li>
-        <li class="contact-benefit">Chứng nhận hoàn thành khóa học có giá trị</li>
-      </ul>
-
-      <div class="contact-socials">
-        <a href="#" class="social-chip" aria-label="Facebook TutorAIs">📘 Facebook</a>
-        <a href="#" class="social-chip" aria-label="YouTube TutorAIs">▶️ YouTube</a>
-        <a href="#" class="social-chip" aria-label="Email TutorAIs">✉️ Email</a>
-      </div>
-    </div>
-
-    <div class="reg-card">
-      <h3 class="reg-card__heading">Đăng ký ngay</h3>
-      <p class="reg-card__sub">Miễn phí • Không cần thẻ tín dụng • Phản hồi trong 24h</p>
-
-      <input type="radio" name="form-tab" id="tab-register" class="form-tab-input" checked />
-      <input type="radio" name="form-tab" id="tab-consult" class="form-tab-input" />
-
-      <div class="form-tab-group" role="tablist">
-        <label for="tab-register" class="form-tab-label" role="tab">🎓 Đăng ký học</label>
-        <label for="tab-consult" class="form-tab-label" role="tab">💬 Tư vấn</label>
-      </div>
-
-      <div class="form-body">
-        <div id="panel-register" class="form-panel">
-          <form action="#contact" method="post" novalidate>
-            <div class="field-group">
-              <div class="field field--row">
-                <div class="field">
-                  <label for="reg-fullname">Họ và tên <span style="color:#ef4444">*</span></label>
-                  <input type="text" id="reg-fullname" name="fullname" placeholder="Nguyễn Văn A" required autocomplete="name" />
-                </div>
-                <div class="field">
-                  <label for="reg-phone">Số điện thoại <span style="color:#ef4444">*</span></label>
-                  <input type="tel" id="reg-phone" name="phone" placeholder="0901 234 567" required autocomplete="tel" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="reg-email">Email <span style="color:#ef4444">*</span></label>
-                <input type="email" id="reg-email" name="email" placeholder="email@example.com" required autocomplete="email" />
-              </div>
-
-              <div class="field">
-                <label for="reg-school">Trường / Năm học</label>
-                <input type="text" id="reg-school" name="school" placeholder="ĐHKHTN – Năm 2" autocomplete="organization" />
-              </div>
-
-              <div class="field">
-                <label for="reg-course">Khóa học quan tâm <span style="color:#ef4444">*</span></label>
-                <select id="reg-course" name="course" required>
-                  <option value="" disabled selected>-- Chọn khóa học --</option>
-                  <option value="chatgpt-basic">ChatGPT từ Cơ bản đến Nâng cao</option>
-                  <option value="claude-research">Claude cho Nghiên cứu &amp; Luận văn</option>
-                  <option value="gemini-google">Gemini &amp; Hệ sinh thái Google</option>
-                  <option value="prompt-engineering">Prompt Engineering Chuyên nghiệp</option>
-                  <option value="ai-full">Combo AI Toàn diện (3 nền tảng)</option>
-                </select>
-              </div>
-
-              <div class="field field--check">
-                <input type="checkbox" id="reg-agree" name="agree" required />
-                <label for="reg-agree">
-                  Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và
-                  <a href="#">Chính sách bảo mật</a>
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn--full" id="btn-register">
-              🚀 &nbsp;Đăng ký miễn phí ngay
-            </button>
-          </form>
-        </div>
-
-        <div id="panel-consult" class="form-panel">
-          <form action="#contact" method="post" novalidate>
-            <div class="field-group">
-              <div class="field field--row">
-                <div class="field">
-                  <label for="con-name">Họ và tên <span style="color:#ef4444">*</span></label>
-                  <input type="text" id="con-name" name="name" placeholder="Nguyễn Thị B" required autocomplete="name" />
-                </div>
-                <div class="field">
-                  <label for="con-phone">Số điện thoại</label>
-                  <input type="tel" id="con-phone" name="phone" placeholder="0901 234 567" autocomplete="tel" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="con-email">Email <span style="color:#ef4444">*</span></label>
-                <input type="email" id="con-email" name="email" placeholder="email@example.com" required autocomplete="email" />
-              </div>
-
-              <div class="field">
-                <label for="con-topic">Chủ đề tư vấn <span style="color:#ef4444">*</span></label>
-                <select id="con-topic" name="topic" required>
-                  <option value="" disabled selected>-- Chọn chủ đề --</option>
-                  <option value="choose-ai">Chọn công cụ AI phù hợp</option>
-                  <option value="roadmap">Xây dựng lộ trình học AI</option>
-                  <option value="thesis">Dùng AI cho luận văn / nghiên cứu</option>
-                  <option value="career">AI trong định hướng nghề nghiệp</option>
-                  <option value="other">Câu hỏi khác</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="con-message">Nội dung câu hỏi</label>
-                <textarea id="con-message" name="message" placeholder="Mô tả ngắn về vấn đề bạn cần tư vấn..."></textarea>
-              </div>
-
-              <div class="field field--check">
-                <input type="checkbox" id="con-agree" name="agree" required />
-                <label for="con-agree">
-                  Tôi đồng ý nhận phản hồi qua email &amp; đồng ý với
-                  <a href="#">Điều khoản</a>
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn--full" id="btn-consult">
-              💬 &nbsp;Gửi yêu cầu tư vấn
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <p class="form-note">
-        🔒 Thông tin của bạn được bảo mật tuyệt đối &amp; không chia sẻ cho bên thứ ba.
+        FPTU TutorAIs là cổng thông tin hỗ trợ học sinh THPT tiếp cận AI một cách đúng đắn, thực tiễn và có trách nhiệm.
       </p>
     </div>
   </div>
 </section>
+
+<!-- 
+bundle install
+bundle exec jekyll clean
+bundle exec jekyll serve --livereload
+-->
   </main>
 
   <footer class="site-footer">
-  <div class="container site-footer__inner">
-    <p>© 2026 TutorAIs. All rights reserved.</p>
-    <p>Giáo dục ứng dụng AI học tập và làm việc cho học sinh, sinh viên Việt Nam.</p>
+  <div class="container site-footer__top">
+    <div class="site-footer__brand">
+      <div class="site-footer__logo">
+        <span class="site-footer__logo-icon">✦</span>
+        <span class="site-footer__logo-text">FPTU TutorAIs</span>
+      </div>
+
+      <p class="site-footer__desc">
+        Cổng thông tin AI dành cho học sinh THPT – Học thông minh, sáng tạo và có trách nhiệm.
+      </p>
+    </div>
+
+    <div class="site-footer__links">
+      <h3 class="site-footer__title">Liên kết nhanh</h3>
+
+      <ul>
+        
+          
+        
+          
+            <li>
+              <a href="/ai-tools/">Công cụ AI</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/categories/">Học theo môn</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/guide/">Hướng dẫn sử dụng</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="/blog/">Blog & Tin tức</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+
+    <div class="site-footer__contact">
+      <h3 class="site-footer__title">Liên hệ</h3>
+
+      <ul>
+        <li>✉ contact@tutorais.edu.vn</li>
+        <li>☏ 0123 456 789</li>
+        <li>⌖ Tăng Nhơn Phú, Hồ Chí Minh, Việt Nam</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>© 2026 FPTU TutorAIs. All rights reserved.</p>
   </div>
 </footer>
 </body>

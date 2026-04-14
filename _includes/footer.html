@@ -1,6 +1,42 @@
 <footer class="site-footer">
-  <div class="container site-footer__inner">
-    <p>© 2026 TutorAIs. All rights reserved.</p>
-    <p>Giáo dục ứng dụng AI học tập và làm việc cho học sinh, sinh viên Việt Nam.</p>
+  <div class="container site-footer__top">
+    <div class="site-footer__brand">
+      <div class="site-footer__logo">
+        <span class="site-footer__logo-icon">{{ site.data.site_info.brand_icon }}</span>
+        <span class="site-footer__logo-text">{{ site.data.site_info.brand_name }}</span>
+      </div>
+
+      <p class="site-footer__desc">
+        {{ site.data.site_info.description }}
+      </p>
+    </div>
+
+    <div class="site-footer__links">
+      <h3 class="site-footer__title">Liên kết nhanh</h3>
+
+      <ul>
+        {% for item in site.data.navigation.main %}
+          {% unless item.title == "Trang chủ" %}
+            <li>
+              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="site-footer__contact">
+      <h3 class="site-footer__title">Liên hệ</h3>
+
+      <ul>
+        <li>✉ {{ site.data.site_info.contact.email }}</li>
+        <li>☏ {{ site.data.site_info.contact.phone }}</li>
+        <li>⌖ {{ site.data.site_info.contact.address }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>{{ site.data.site_info.copyright }}</p>
   </div>
 </footer>

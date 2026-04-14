@@ -1,0 +1,120 @@
+---
+layout: default
+---
+
+<section class="tool-detail-page">
+  <div class="container">
+    <article class="tool-detail-card">
+      <h1 class="tool-detail-title">{{ page.title }}</h1>
+
+      {% if page.description %}
+        <p class="tool-detail-description">{{ page.description }}</p>
+      {% endif %}
+
+      {% if page.tags %}
+        <div class="tool-detail-tags">
+          {% for tag in page.tags %}
+            <span class="tool-detail-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="tool-detail-content">
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .tool-detail-page {
+    padding: 64px 0;
+    background: #f5f7fb;
+  }
+
+  .tool-detail-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  }
+
+  .tool-detail-title {
+    margin: 0 0 12px;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #111827;
+    font-weight: 800;
+  }
+
+  .tool-detail-description {
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #6b7280;
+  }
+
+  .tool-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .tool-detail-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .tool-detail-content {
+    color: #374151;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .tool-detail-content h2,
+  .tool-detail-content h3 {
+    color: #111827;
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+
+  .tool-detail-content p {
+    margin-bottom: 14px;
+  }
+
+  .tool-detail-content ul,
+  .tool-detail-content ol {
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .tool-detail-page {
+      padding: 40px 0;
+    }
+
+    .tool-detail-card {
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .tool-detail-title {
+      font-size: 30px;
+    }
+
+    .tool-detail-description,
+    .tool-detail-content {
+      font-size: 16px;
+    }
+  }
+</style>

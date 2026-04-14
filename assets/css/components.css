@@ -1,0 +1,213 @@
+/* Menu toggle */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hamburger */
+.hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0 11px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hamburger:hover {
+  border-color: #bfdcff;
+  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.12);
+}
+
+.hamburger__line {
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 999px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Nav */
+.site-nav {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.site-nav__link {
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  color: #374151;
+  font-weight: 500;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-nav__link:hover {
+  color: var(--color-primary);
+  background-color: #eff6ff;
+}
+
+.site-nav__link--active {
+  color: var(--color-primary);
+  background-color: #edf4ff;
+}
+
+.menu-toggle:checked ~ .site-nav {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu-toggle:checked + .hamburger .hamburger__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle:checked + .hamburger .hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle:checked + .hamburger .hamburger__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Badge */
+.badge {
+  margin: 0 0 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #eaf3ff;
+  color: var(--color-primary);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.74rem 1.15rem;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: var(--color-primary-dark);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+}
+
+.btn--ghost {
+  background: #fff;
+  color: var(--color-primary);
+  border-color: #cfe3ff;
+}
+
+.btn--ghost:hover {
+  background: #eef5ff;
+  box-shadow: none;
+}
+
+.btn--sm {
+  padding: 0.58rem 0.9rem;
+  font-size: 0.92rem;
+}
+
+.btn--light {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.btn--light:hover {
+  background: #f6f9ff;
+}
+
+.btn--full {
+  width: 100%;
+  padding: 0.82rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 11px;
+  justify-content: center;
+}
+
+/* Card */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.card__meta {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.card__text {
+  margin: 0.56rem 0 0;
+  color: var(--color-muted);
+}
+
+.card__link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+

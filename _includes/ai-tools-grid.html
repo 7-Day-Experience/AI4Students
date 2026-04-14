@@ -1,0 +1,187 @@
+<section class="ai-tools-section">
+  <div class="container">
+    <div class="ai-tools-heading">
+      <h2>Công cụ AI <span>nổi bật</span></h2>
+      <p>Những công cụ AI hàng đầu được chọn lọc, phù hợp nhất cho học sinh THPT.</p>
+    </div>
+
+    {% assign tool_pages = site.ai_tools | sort: "tool_number" %}
+
+    <div class="ai-tools-grid">
+      {% for tool in tool_pages %}
+        <article class="ai-tool-card">
+          <div class="ai-tool-icon">
+            {% if tool.icon %}
+              <span>{{ tool.icon }}</span>
+            {% else %}
+              <span>✦</span>
+            {% endif %}
+          </div>
+
+          <h3 class="ai-tool-title">{{ tool.title }}</h3>
+
+          <p class="ai-tool-desc">
+            {{ tool.description }}
+          </p>
+
+          {% if tool.tags %}
+            <div class="ai-tool-tags">
+              {% for tag in tool.tags %}
+                <span class="ai-tool-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <a href="{{ tool.url | relative_url }}" class="ai-tool-link">
+            Xem chi tiết ↗
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-tools-section {
+    padding: 72px 0;
+    background: #f3f4f6;
+  }
+
+  .ai-tools-section .container {
+    width: min(1280px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .ai-tools-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .ai-tools-heading h2 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .ai-tools-heading h2 span {
+    color: #6366f1;
+  }
+
+  .ai-tools-heading p {
+    margin: 18px auto 0;
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #6b7280;
+  }
+
+  .ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .ai-tool-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    transition: all 0.25s ease;
+  }
+
+  .ai-tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(99, 102, 241, 0.12);
+  }
+
+  .ai-tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .ai-tool-title {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .ai-tool-desc {
+    margin: 0 0 16px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6b7280;
+    min-height: 82px;
+  }
+
+  .ai-tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .ai-tool-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .ai-tool-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .ai-tool-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1100px) {
+    .ai-tools-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 820px) {
+    .ai-tools-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .ai-tools-section {
+      padding: 48px 0;
+    }
+
+    .ai-tools-section .container {
+      width: min(100%, calc(100% - 28px));
+    }
+
+    .ai-tools-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
